@@ -44,6 +44,8 @@ public class KernelAPI {
   private long close;
 
   private long kaslrOffset;
+  private long kdataBase;
+  private long kqFdp;
 
   private Int32Array masterPipeFd = new Int32Array(2);
   private Int32Array victimPipeFd = new Int32Array(2);
@@ -194,4 +196,21 @@ public class KernelAPI {
   public void setKaslrOffset(long offset) {
     kaslrOffset = offset;
   }
+
+  public long getKdataBase() {
+    return kdataBase;
+  }
+
+  public void setKdataBase(long base) {
+    kdataBase = base;
+  }
+
+  public long getKqFdp() {
+    return kqFdp;
+  }
+
+  public void setKqFdp(long fdp) {
+    kqFdp = fdp;
+  }
+
 }

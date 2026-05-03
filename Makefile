@@ -52,6 +52,12 @@ DISC_FILES := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_FILES))
 
 all: $(DISC_LABEL).iso
 
+autoloader: discdir/BDMV/JAR/00000.jar
+	$(MAKE) -C payloads/autoloader all
+
+poops: discdir/BDMV/JAR/00000.jar
+	$(MAKE) -C payloads/poops all
+
 discdir:
 	mkdir -p $(DISC_DIRS)
 
@@ -63,7 +69,9 @@ discdir/%: discdir
 	cp $(BDJSDK_HOME)/resources/AVCHD/$* $@
 
 
-$(DISC_LABEL).iso: $(DISC_FILES)
+$(DISC_LABEL).iso: $(DISC_FILES) autoloader poops
+	cp payloads/autoloader/autoloader.jar discdir/autoloader.jar
+	cp payloads/poops/poops.jar discdir/poops.jar
 	cp -r BDMV/META discdir/BDMV/
 	cp -r BDMV/BDJO discdir/BDMV/
 	$(MAKEFS) -m 16m -t udf -o T=bdre,v=2.50,L=$(DISC_LABEL) $@ discdir

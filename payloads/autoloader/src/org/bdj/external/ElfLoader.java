@@ -112,14 +112,15 @@ public class ElfLoader {
         long size;
     }
 
-    public static void start(long kdatabase, long kqfdp) {
-        kdata_base = kdatabase;
-        kq_fdp = kqfdp;
-        
-        Status.println("=== ElfLoader Starting ===");
-        loadEmbeddedElf();
-        // listenForPayloadsOnPort(NETWORK_PORT);
-        
+    private static void ensureAddresses() {
+        if (kdata_base == 0 || kq_fdp == 0) {
+            kdata_base = kapi.getKdataBase();
+            kq_fdp = kapi.getKqFdp();
+        }
+
+        if (kdata_base == 0 || kq_fdp == 0) {
+            throw new IllegalStateException("System not jailbroken (Kernel addresses not found)");
+        }
     }
 
     private static long elfParse(byte[] elfData) throws Exception {
@@ -376,26 +377,17 @@ public class ElfLoader {
         return thrHandle.get();
     }
 
-    private static void elfWaitForExit(long thrHandle, Int32 payloadout) throws Exception {
-        long ret = api.call(scePthreadJoin, thrHandle, 0L);
-        if (ret != 0) {
-            throw new RuntimeException("scePthreadJoin failed: " + String.valueOf(ret));
-        }
-        Status.println("ELF exited, payloadout: 0x" + Integer.toHexString(payloadout.get()));
-    }
-
     private static void elfLoader(byte[] elfData) throws Exception {
         Int32 payloadout   = new Int32();
         long elfEntryPoint = elfParse(elfData);
-        long thrHandle     = elfRun(elfEntryPoint, payloadout);
-        elfWaitForExit(thrHandle, payloadout);
+        elfRun(elfEntryPoint, payloadout);
         Status.println("done");
     }
 
-    private static void loadEmbeddedElf() {
+    public static void loadEmbeddedElf() {
         InputStream elfStream = ElfLoader.class.getResourceAsStream(embed_elf_path);
         if (elfStream == null) {
-            Status.println("Embedded ELF not found in jar");
+            Status.println("Embedded ELF not found in jar: " + embed_elf_path);
             return;
         }
         try {
@@ -409,6 +401,7 @@ public class ElfLoader {
             buf.close();
             Status.println("Embedded ELF size: " + String.valueOf(elfData.length) +
                         " bytes (0x" + Integer.toHexString(elfData.length) + ")");
+            ensureAddresses();
             elfLoader(elfData);
         } catch (Exception e) {
             Status.printStackTrace("Failed to load embedded ELF: ", e);

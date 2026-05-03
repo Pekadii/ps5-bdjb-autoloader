@@ -1,0 +1,2 @@
+Main-Class: org.bdj.external.Autoloader
+Manifest-Version: 1.0

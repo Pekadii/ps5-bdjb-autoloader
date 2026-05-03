@@ -1243,13 +1243,13 @@ public class Poops {
         // Restore it before closing
         // Allow root file system access.
         
-/*         long rootvnode = getRootVnode();        
+        long rootvnode = getRootVnode();        
         long p_fd = kapi.kread64(p + 0x48);
         bdj_vnode = kapi.kread64(p_fd + 0x10);
         
-        Status.println("bdj_vnode: " + Long.toHexString(bdj_vnode)); */
+        Status.println("bdj_vnode: " + Long.toHexString(bdj_vnode));
         
-        // kapi.kwrite64(p_fd + 0x10, rootvnode); // fd_rdir
+        kapi.kwrite64(p_fd + 0x10, rootvnode); // fd_rdir
         
         if (!GPU.run(kdata_base, curproc)) {
             Status.println("GPU rw failed");
@@ -1410,7 +1410,8 @@ public class Poops {
             
             cleanup();
             
-            BinLoader.start();
+            Status.println("Jailbreak complete.");
+            NativeInvoke.sendNotificationRequest("Jailbreak complete");
             
         } else if (PLATFORM.equals("PS5")) {
 
@@ -1424,11 +1425,11 @@ public class Poops {
             
             cleanup();
             
-            ElfLoader.start(kdata_base, kq_fdp);
+            kapi.setKdataBase(kdata_base);
+            kapi.setKqFdp(kq_fdp);
             
-            // This is temp fix
-            // kill bdj.elf otherwise BD-J crashes when closing app
-            kill_bdj();
+            Status.println("Jailbreak complete. Kernel addresses stored in KernelAPI.");
+            NativeInvoke.sendNotificationRequest("Jailbreak complete");
             
         } else {
             cleanup();

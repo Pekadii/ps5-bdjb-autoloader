@@ -38,6 +38,12 @@ Use john-tornblom's **[bdj-sdk](https://github.com/john-tornblom/bdj-sdk/)** and
 
 ---
 
+## License
+
+This project is licensed under the GPL-3.0 License.
+
+The original BD-UN-JB base code remains under its original MIT License (see LICENSE-MIT).
+All unique modifications and additions in this fork are licensed under GPL-3.0.
 
 
 

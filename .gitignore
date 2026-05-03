@@ -3,3 +3,6 @@ discdir/
 src/**/*.class
 META-INF/
 .DS_Store
+**/*.class
+**/*.jar
+payloads/**/*.jar
