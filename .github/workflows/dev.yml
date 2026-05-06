@@ -21,6 +21,11 @@ jobs:
       - name: Build ISO
         run: ./build_iso.sh
 
+      - name: Delete old release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release delete dev -y --cleanup-tag || true
+
       - name: Create or Update Dev Release
         uses: softprops/action-gh-release@v2
         with:
