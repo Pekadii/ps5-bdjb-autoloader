@@ -313,7 +313,7 @@ public class Poops {
             
         } else if (PLATFORM.equals("PS5")) {
             
-            if (compareVersions(FW_VERSION, "1.00") < 0 || compareVersions(FW_VERSION, "12.00") > 0) {
+            if (compareVersions(FW_VERSION, "10.00") < 0 || compareVersions(FW_VERSION, "12.00") > 0) {
                 Status.error("UNSUPPORTED FW_VERSION: " + FW_VERSION);
                 return false;
             }
