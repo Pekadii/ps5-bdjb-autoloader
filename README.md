@@ -23,6 +23,27 @@
 
 ## Unofficial community fork of Gezine/BD-UN-JB ps5-bdjb-autoloader
 
+## Contents
+
+- Features
+- How to Use
+- Manual Configuration
+- Setup Instructions
+- Custom ELF Loader
+- Credits
+- License
+
+
+## Features
+
+- 🚀 Automatic ELF payload loading
+- 🌐 Built-in Payload Manager web interface
+- 📦 USB and internal storage support
+- 🔒 Secure localhost-only ELF Loader by default
+- ⚙️ Manual payload chains via `autoload.txt`
+- 💿 BD-R disc based exploit launcher
+- ✅ Supports PS5 firmware 4.03–12.00
+
 ## How to Use
 
 There are two ways to use the autoloader:
@@ -85,6 +106,18 @@ elfldr.elf
 ftpsrv.elf
 ```
 </Details>
+
+## Fork Maintainer
+
+**Pekadii**
+
+Maintainer of this community fork featuring:
+
+- Improved Payload Manager integration
+- Faster autoload sequence
+- Updated bundled ELF Loader
+- Improved startup reliability
+- Various bug fixes and internal improvements
 
 ## Credits
 
