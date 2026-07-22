@@ -2,8 +2,8 @@
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-GPL-blue" alt="License">
   </a>
-  <a href="https://github.com/Pekadii/ps5-payload-manager/releases/tag/v1.4.3">
-    <img src="https://img.shields.io/badge/Development-1.4.3-blue.svg" alt="Development">
+  <a href="https://github.com/Pekadii/ps5-payload-manager/releases/tag/v0.4.3">
+    <img src="https://img.shields.io/badge/Development-0.4.3-blue.svg" alt="Development">
   </a>
   <a href="https://github.com/Pekadii/ps5-bdjb-autoloader/releases/tag/v1.4.2">
     <img src="https://img.shields.io/badge/Release-PS5%20BD--JB%20Autoloader%20v1.4.2-blue" alt="Release">
