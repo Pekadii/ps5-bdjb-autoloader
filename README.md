@@ -20,7 +20,7 @@
  <img src="./bd-jb_screenshot.png" width="600" />
 </p>
 
-# Unofficial community fork of Gezine/BD-UN-JB ps5-bdjb-autoloader
+## Unofficial community fork of Gezine/BD-UN-JB ps5-bdjb-autoloader
 
 ## How to Use
 
