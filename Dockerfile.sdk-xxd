@@ -1,7 +1,0 @@
-FROM example/ps5-payload-sdk:latest
-
-USER root
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends xxd \
-    && rm -rf /var/lib/apt/lists/*
