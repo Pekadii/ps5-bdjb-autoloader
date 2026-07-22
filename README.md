@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/Pekadii/ps5-bdjb-autoloader/releases/tag/v1.4.2">
+    <img src="https://img.shields.io/badge/Release-PS5%20BD--JB%20Autoloader%20v1.4.2-blue" />
+  </a>
+</p>
+
+<p align="center">
  <img src="./ps5loader.png" width="128" />
 </p>
 <h1 align="center">PS5 BD-JB Autoloader</h1>
@@ -15,7 +21,6 @@
 <p align="center">
  <img src="./bd-jb_screenshot.png" width="600" />
 </p>
-
 
 ## How to Use
 
