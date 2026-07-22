@@ -16,16 +16,16 @@
 
 
 DISC_LABEL := ps5-bd-jb-autoloader
-VERSION    := 1.4.1
+VERSION    := 1.4.2
 
 # Git info for versioning
 GIT_HASH   := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 GIT_DIRTY  := $(shell git status --porcelain 2>/dev/null)
-BUILD_TYPE ?= dev
+BUILD_TYPE ?= stable
 ifeq ($(BUILD_TYPE),stable)
-ISO_VERSION := v$(VERSION)-$(if $(GIT_DIRTY),$(shell date +"%Y%m%d%H%M%S"),$(GIT_HASH))
+ISO_VERSION := v$(VERSION)
 else
-ISO_VERSION := v$(VERSION)-$(BUILD_TYPE)-$(if $(GIT_DIRTY),$(shell date +"%Y%m%d%H%M%S"),$(GIT_HASH))
+ISO_VERSION := v$(VERSION)
 endif
 ISO_FILE   := $(DISC_LABEL)-$(ISO_VERSION).iso
 XML_VERSION := $(VERSION)

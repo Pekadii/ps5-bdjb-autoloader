@@ -3,6 +3,7 @@ FROM eclipse-temurin:8-jdk-jammy
 # Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    xxd \
     git \
     pkg-config \
     libbsd-dev \
