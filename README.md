@@ -10,6 +10,7 @@
 &nbsp;
 <p align="center">Automatically loads the kernel exploit and your elf payloads.<br>Supports PS5 firmwares 4.03-12.00. <br><b>Note:</b> To work on firmwares <b>above 7.61</b>, the PS5 must already be jailbroken (requires the <a href="https://github.com/Gezine/BD-UN-JB/releases">bdj_unpatch</a> payload).</p>
 
+
 <p align="center">
     <b>Other Autoloaders:</b><br>
     <a href="https://github.com/itsPLK/ps5-y2jb-autoloader">Y2JB</a> | 
