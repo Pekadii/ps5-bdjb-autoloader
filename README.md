@@ -84,7 +84,7 @@ For a fixed, automated payload chain, you can configure payloads manually:
 
 This autoloader is deployed via a BD-R disc.
 
-1. Download the **PS5 BD-JB Autoloader ISO** from the [Releases](https://github.com/Pekadii/ps5-bdjb-autoloader/releases) page.
+1. Download the **PS5 BD-JB Autoloader ISO** from the **[Releases](https://github.com/Pekadii/ps5-bdjb-autoloader/releases)** page.
 2. Burn the ISO to a BD-R(E) disc using software like `ImgBurn` (use UDF 2.50 filesystem).
 3. Insert the disc into the PS5 and launch it from the "Media" tab.
 
