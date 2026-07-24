@@ -1,5 +1,5 @@
 ![License](https://img.shields.io/badge/License-GPL-blue) 
-![Development](https://img.shields.io/badge/Development-1.4.3-blue.svg) 
+![Development](https://img.shields.io/badge/Development-1.4.3dev-blue.svg) 
 ![Release](https://img.shields.io/badge/Release-PS5%20BD--JB%20Autoloader%20v1.4.2-blue)
 
 <p align="center">
