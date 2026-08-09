@@ -1,0 +1,186 @@
+Dependencies already present.
+Starting PS5 BD-JB Autoloader Docker Builder (stable)...
+ Image ps5-bdjb-autoloader-builder Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 562B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.28kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk-jammy
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 123B done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:4e6409efc7e022f46b4969fb489c12fe2869c49f176829b948874a7c8ebb4b84
+#5 resolve docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:4e6409efc7e022f46b4969fb489c12fe2869c49f176829b948874a7c8ebb4b84 0.0s done
+#5 DONE 0.0s
+
+#6 [6/7] RUN mkdir -p /opt/bdj-sdk/target/lib     && cp /opt/bdj-sdk/host/lib/*.jar /opt/bdj-sdk/target/lib/     && cp /opt/bdj-sdk/host/jdk8/jre/lib/rt.jar /opt/bdj-sdk/target/lib/
+#6 CACHED
+
+#7 [4/7] RUN cd /opt/bdj-sdk/host/src/makefs_termux     && CFLAGS="-Wno-error=implicit-function-declaration -Wno-error=int-conversion" make     && cp makefs /opt/bdj-sdk/host/bin/makefs     && chmod +x /opt/bdj-sdk/host/bin/makefs     && cp makefs /usr/local/bin/makefs     && chmod +x /usr/local/bin/makefs
+#7 CACHED
+
+#8 [2/7] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     xxd     git     pkg-config     libbsd-dev     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [3/7] RUN git clone --depth 1 --recurse-submodules https://github.com/john-tornblom/bdj-sdk /opt/bdj-sdk
+#9 CACHED
+
+#10 [5/7] RUN cp -r /opt/java/openjdk /opt/bdj-sdk/host/jdk8
+#10 CACHED
+
+#11 [7/7] WORKDIR /workspace
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:ff612e535147d0f6629c3436845bdeb9ac679f484b789e1dd9506620099a8f1e done
+#12 exporting config sha256:26cb31b0e8764672259cb572eee63d3f1c6831f9bd56b8e495c6c611ffc2f5af done
+#12 exporting attestation manifest sha256:ba290d1eae87e291446dfcf9d84ff306f62663b9d5a69476055a37bf9bb8d5b0 0.0s done
+#12 exporting manifest list sha256:73e2d53b55b535719bd57fc68c570dae5a2de3d53c1292ba3737056933ebadf1 done
+#12 naming to docker.io/library/ps5-bdjb-autoloader-builder:latest done
+#12 unpacking to docker.io/library/ps5-bdjb-autoloader-builder:latest done
+#12 DONE 0.1s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image ps5-bdjb-autoloader-builder Built 
+ Container ps5-bdjb-autoloader-builder-run-8778bd4bbd95 Creating 
+ Container ps5-bdjb-autoloader-builder-run-8778bd4bbd95 Created 
+JAVA8_HOME=$JAVA8_HOME
+BDJSDK_HOME=$BDJSDK_HOME
+makefs available at: /usr/local/bin/makefs
+javac available at: /opt/java/openjdk/bin/javac
+Current dir: /workspace/ps5-bdjb-autoloader
+Building disc structure...
+make -C payloads/autoloader clean
+make[1]: Entering directory '/workspace/ps5-bdjb-autoloader/payloads/autoloader'
+find src -name "*.class" -delete
+rm -f autoloader.jar
+make[1]: Leaving directory '/workspace/ps5-bdjb-autoloader/payloads/autoloader'
+make -C payloads/poops clean
+make[1]: Entering directory '/workspace/ps5-bdjb-autoloader/payloads/poops'
+rm -f src/org/bdj/api/*.class src/org/bdj/*.class src/org/bdj/external/*.class poops.jar src/org/bdj/external/BinaryPaths.java
+make[1]: Leaving directory '/workspace/ps5-bdjb-autoloader/payloads/poops'
+rm -rf META-INF *.iso discdir src/jdk/internal/misc/*.class src/org/bdj/*.class src/org/bdj/sandbox/*.class src/org/bdj/api/*.class src/org/bdj/Version.java
+mkdir -p discdir/ discdir/BDMV discdir/BDMV/BDJO discdir/BDMV/PLAYLIST discdir/BDMV/CLIPINF discdir/BDMV/BACKUP discdir/BDMV/STREAM discdir/BDMV/AUXDATA discdir/CERTIFICATE discdir/CERTIFICATE/BACKUP discdir/BDMV/JAR
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/BDJO/00000.bdjo discdir/BDMV/BDJO/00000.bdjo
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/PLAYLIST/00000.mpls discdir/BDMV/PLAYLIST/00000.mpls
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/CLIPINF/00000.clpi discdir/BDMV/CLIPINF/00000.clpi
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/MovieObject.bdmv discdir/BDMV/MovieObject.bdmv
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/BACKUP/INDEX.BDM discdir/BDMV/BACKUP/INDEX.BDM
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/BACKUP/MovieObject.bdmv discdir/BDMV/BACKUP/MovieObject.bdmv
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/BACKUP/index.bdmv discdir/BDMV/BACKUP/index.bdmv
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/BACKUP/MOVIEOBJ.BDM discdir/BDMV/BACKUP/MOVIEOBJ.BDM
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/STREAM/00000.m2ts discdir/BDMV/STREAM/00000.m2ts
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/AUXDATA/00000.otf discdir/BDMV/AUXDATA/00000.otf
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/AUXDATA/00002.otf discdir/BDMV/AUXDATA/00002.otf
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/AUXDATA/dvb.fontindex discdir/BDMV/AUXDATA/dvb.fontindex
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/AUXDATA/00001.otf discdir/BDMV/AUXDATA/00001.otf
+cp /opt/bdj-sdk/resources/AVCHD/BDMV/index.bdmv discdir/BDMV/index.bdmv
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/bu.discroot.crt discdir/CERTIFICATE/bu.discroot.crt
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/BACKUP/bu.discroot.crt discdir/CERTIFICATE/BACKUP/bu.discroot.crt
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/BACKUP/app.discroot.crt discdir/CERTIFICATE/BACKUP/app.discroot.crt
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/BACKUP/id.bdmv discdir/CERTIFICATE/BACKUP/id.bdmv
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/app.discroot.crt discdir/CERTIFICATE/app.discroot.crt
+cp /opt/bdj-sdk/resources/AVCHD/CERTIFICATE/id.bdmv discdir/CERTIFICATE/id.bdmv
+/opt/bdj-sdk/host/jdk8/bin/javac -Xlint:-options -source 1.4 -target 1.4 -cp /opt/bdj-sdk/target/lib/enhanced-stubs.zip:/opt/bdj-sdk/target/lib/bdjstack.jar:/opt/bdj-sdk/target/lib/rt.jar src/jdk/internal/misc/Unsafe.java src/org/bdj/InitXlet.java src/org/bdj/InternalJarLoader.java src/org/bdj/ProgressUI.java src/org/bdj/RemoteLogger.java src/org/bdj/Screen.java src/org/bdj/Status.java src/org/bdj/sandbox/ExploitInternal.java src/org/bdj/sandbox/Exploit.java src/org/bdj/api/API.java src/org/bdj/api/Buffer.java src/org/bdj/api/Int16Array.java src/org/bdj/api/Int16.java src/org/bdj/api/Int32Array.java src/org/bdj/api/Int32.java src/org/bdj/api/Int64Array.java src/org/bdj/api/Int64.java src/org/bdj/api/Int8Array.java src/org/bdj/api/Int8.java src/org/bdj/api/KernelAPI.java src/org/bdj/api/NativeInvoke.java src/org/bdj/api/Text.java src/org/bdj/api/UnsafeInterface.java src/org/bdj/api/UnsafeJdkImpl.java src/org/bdj/api/UnsafeSunImpl.java src/org/bdj/Version.java
+src/org/bdj/Screen.java:484: error: 'else' without 'if'
+            } else if (completed) {
+              ^
+src/org/bdj/Screen.java:504: error: class or interface expected
+    private void drawFailedIcon(Graphics g, int x, int y) {
+            ^
+src/org/bdj/Screen.java:506: error: class or interface expected
+        g.drawLine(x + 14, y, x, y + 14);
+        ^
+src/org/bdj/Screen.java:507: error: class or interface expected
+    }
+    ^
+src/org/bdj/Screen.java:511: error: class or interface expected
+        g.drawLine(x + 5, y + 12, x + 14, y + 2);
+        ^
+src/org/bdj/Screen.java:512: error: class or interface expected
+        g.drawLine(x, y + 8, x + 5, y + 13);
+        ^
+src/org/bdj/Screen.java:513: error: class or interface expected
+        g.drawLine(x + 5, y + 13, x + 14, y + 3);
+        ^
+src/org/bdj/Screen.java:514: error: class or interface expected
+    }
+    ^
+src/org/bdj/Screen.java:518: error: class or interface expected
+        int[] yPoints = {y, y + 16, y + 8};
+        ^
+src/org/bdj/Screen.java:520: error: class or interface expected
+        g.fillPolygon(xPoints, yPoints, 3);
+        ^
+src/org/bdj/Screen.java:521: error: class or interface expected
+    }
+    ^
+src/org/bdj/Screen.java:525: error: class or interface expected
+    }
+    ^
+src/org/bdj/Screen.java:533: error: class or interface expected
+        g.fillRoundRect(x, y, width, height, 16, 16);
+        ^
+src/org/bdj/Screen.java:536: error: class or interface expected
+        if (percent > 0) {
+        ^
+src/org/bdj/Screen.java:538: error: class or interface expected
+            int fillWidth = (int) (width * (percent / 100.0));
+            ^
+src/org/bdj/Screen.java:539: error: class or interface expected
+            g.fillRoundRect(x, y, fillWidth, height, 16, 16);
+            ^
+src/org/bdj/Screen.java:540: error: class or interface expected
+        }
+        ^
+src/org/bdj/Screen.java:544: error: class or interface expected
+        g.setColor(Color.white);
+        ^
+src/org/bdj/Screen.java:545: error: class or interface expected
+        String pctStr = percent + "%";
+        ^
+src/org/bdj/Screen.java:546: error: class or interface expected
+        int pctWidth = g.getFontMetrics().stringWidth(pctStr);
+        ^
+src/org/bdj/Screen.java:547: error: class or interface expected
+        g.drawString(pctStr, x + width + 15, y + (height / 2) + 7);
+        ^
+src/org/bdj/Screen.java:550: error: class or interface expected
+        if (label != null && label.length() > 0) {
+        ^
+src/org/bdj/Screen.java:552: error: class or interface expected
+            g.drawString(label, (getWidth() - labelWidth) / 2, y + height + 25);
+            ^
+src/org/bdj/Screen.java:553: error: class or interface expected
+        }
+        ^
+src/org/bdj/Screen.java:556: error: class or interface expected
+    public static void clear() {
+                  ^
+src/org/bdj/Screen.java:558: error: class or interface expected
+    }
+    ^
+src/org/bdj/Screen.java:560: error: class or interface expected
+    public void clearMessages() {
+           ^
+src/org/bdj/Screen.java:563: error: class or interface expected
+            isDirty = true;
+            ^
+src/org/bdj/Screen.java:564: error: class or interface expected
+        }
+        ^
+src/org/bdj/Screen.java:566: error: class or interface expected
+    }
+    ^
+30 errors
+make: *** [Makefile:94: discdir/BDMV/JAR/00000.jar] Error 1
+

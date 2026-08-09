@@ -35,12 +35,27 @@ public class Autoloader {
         Status.setProgress(81, "Waiting for ELF loader...");
         
         boolean elfldrReady = false;
-        for (int i = 0; i < 50; i++) {
+        
+        for (int i = 0; i < 150; i++) {
             if (isPortOpen(9021)) {
                 elfldrReady = true;
                 break;
             }
-            try { Thread.sleep(200); } catch (Exception ignored) {}
+
+            if (i % 5 == 0) {
+                int remainingMs = (150 - i) * 200;
+                int remainingSeconds = remainingMs / 1000;
+
+                Status.setProgress(
+                        81,
+                        "Waiting for ELF loader - " + remainingSeconds + " seconds remaining"
+                );
+            }
+
+            try {
+                Thread.sleep(200);
+            } catch (Exception ignored) {
+            }
         }
         
         if (!elfldrReady) {
