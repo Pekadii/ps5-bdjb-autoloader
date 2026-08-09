@@ -4,7 +4,7 @@
 <h1 align="center">PS5 BD-JB Autoloader</h1>
 <h3 align="center">Fork of <a href="https://github.com/Gezine/BD-UN-JB">BD-UN-JB</a></h3>
 &nbsp;
-<p align="center">Automatically loads the kernel exploit and your elf payloads.<br>Supports PS5 firmwares 4.03-12.00. <br><b>Note:</b> To work on firmwares <b>above 7.61</b>, the PS5 must already be jailbroken (requires the <a href="https://github.com/Gezine/BD-UN-JB/releases">bdj_unpatch</a> payload).</p>
+<p align="center">Automatically loads the kernel exploit and your elf payloads.<br>Supports PS5 firmwares 4.03-12.00. 
 
 <p align="center">
     <b>Other Autoloaders:</b><br>
