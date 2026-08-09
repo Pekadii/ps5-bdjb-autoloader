@@ -2,7 +2,7 @@
  <img src="./ps5loader.png" width="128" />
 </p>
 <h1 align="center">PS5 BD-JB Autoloader</h1>
-<h3 align="center">Fork of <a href="https://github.com/Gezine/BD-UN-JB">BD-UN-JB</a></h3>
+<h3 align="center">Fork of <a href="https://github.com/Gezine/BD-JB5">BD-JB5</a></h3>
 &nbsp;
 <p align="center">Automatically loads the kernel exploit and your elf payloads.<br>Supports PS5 firmwares 4.03-12.00. 
 
