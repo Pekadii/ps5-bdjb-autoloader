@@ -27,7 +27,7 @@ public class InitXlet implements Xlet {
 
         screen = Screen.getInstance();
         screen.setSize(1920, 1080);
-        screen.setTitle("PS5 BD-JB v1.4.3-b2 Autoloader");
+        screen.setTitle("PS5 BD-JB v1.5.0-b1 Autoloader");
         Status.setProgress(0, "Initializing...");
 
         scene = HSceneFactory.getInstance().getDefaultHScene();

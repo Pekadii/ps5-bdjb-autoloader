@@ -77,7 +77,7 @@ public class Screen extends Container {
     private final ArrayList messages = new ArrayList();
     private int progressPercent = 0;
     private String progressMessage = "";
-    private String title = "PS5 BD-JB v1.4.3-b2 Autoloader " + Version.VERSION + ("stable".equals(Version.BUILD_TYPE) ? "" : "-" + Version.BUILD_TYPE);
+    private String title = "PS5 BD-JB v1.5.0-b1 Autoloader " + Version.VERSION + ("stable".equals(Version.BUILD_TYPE) ? "" : "-" + Version.BUILD_TYPE);
 
 
     private static final String ELF_LDR_VERSION = "v0.24-148b71c";
